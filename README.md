@@ -1,55 +1,78 @@
-# Inventory POS Lite
+<div align="center">
 
-Lightweight **Inventory + Point of Sale** system built with modern stack.
+  <h1>Inventory POS Lite</h1>
 
-**Backend**: FastAPI + SQLModel + PostgreSQL  
-**Frontend**: React 18 + TypeScript + Vite + TanStack Query  
-**Deployment-ready**: Docker + docker-compose
+  <p>
+    <strong>Lightweight Inventory + Point-of-Sale system</strong><br />
+    Modern full-stack application built for small businesses & retail shops
+  </p>
 
-![dashboard-screenshot](https://via.placeholder.com/1280x720?text=Dashboard+Screenshot)  
-*(replace with real screenshot later)*
+  <p>
+    <a href="https://github.com/yourusername/inventory-pos-lite/actions/workflows/ci.yml">
+      <img src="https://img.shields.io/github/actions/workflow/status/yourusername/inventory-pos-lite/ci.yml?branch=main&label=CI&logo=github" alt="CI Status">
+    </a>
+    <a href="https://github.com/yourusername/inventory-pos-lite/blob/main/LICENSE">
+      <img src="https://img.shields.io/github/license/yourusername/inventory-pos-lite?color=blue" alt="License">
+    </a>
+    <a href="https://github.com/yourusername/inventory-pos-lite/stargazers">
+      <img src="https://img.shields.io/github/stars/yourusername/inventory-pos-lite?style=social" alt="Stars">
+    </a>
+    <img src="https://img.shields.io/badge/Python-3.11%2B-blue?logo=python&logoColor=white" alt="Python">
+    <img src="https://img.shields.io/badge/React-18-blue?logo=react&logoColor=white" alt="React">
+    <img src="https://img.shields.io/badge/FastAPI-0.115+-brightgreen?logo=fastapi&logoColor=white" alt="FastAPI">
+    <img src="https://img.shields.io/badge/Docker-ready-blue?logo=docker" alt="Docker">
+  </p>
 
-## Features
+  <br />
 
-- CRUD for products/items
-- Simple POS cart + quick sale
-- Basic stock movement tracking
-- JWT authentication (admin + cashier roles planned)
-- Responsive design (mobile friendly POS)
+  <!-- Replace with your real screenshot later -->
+  <img src="https://via.placeholder.com/1280x720/1e3a8a/ffffff?text=Inventory+POS+Lite+Dashboard" alt="Dashboard Screenshot" width="800" />
 
-## Tech Stack
+</div>
 
-- Backend
-  - Python 3.11+
-  - FastAPI 0.115+
-  - SQLModel 0.0.20+
-  - PostgreSQL 16
-  - python-jose[cryptography] + passlib
-- Frontend
-  - React 18
-  - TypeScript
-  - Vite
-  - @tanstack/react-query
-  - Tailwind CSS 3 + shadcn/ui (recommended)
-  - lucide-react icons
-- DevOps
-  - Docker & docker-compose
-  - GitHub Actions (lint + test)
+<br />
 
-## Quick Start (Development)
+## ✨ Features
+
+- CRUD operations for inventory items (name, price, stock, barcode)
+- Simple POS-like sale interface (planned)
+- Real-time stock updates
+- JWT authentication foundation (extendable)
+- Responsive design (mobile-friendly POS view)
+- PostgreSQL database
+- Docker & docker-compose ready (single-command local production)
+- Static frontend served directly from FastAPI (single port)
+
+## 🛠️ Tech Stack
+
+| Layer       | Technology                          | Purpose                              |
+|-------------|-------------------------------------|--------------------------------------|
+| Backend     | FastAPI 0.115+ • SQLModel • Pydantic | REST API, data validation, ORM       |
+| Database    | PostgreSQL 16                       | Persistent storage                   |
+| Frontend    | React 18 • TypeScript • Vite        | SPA, fast development & build        |
+| State/Query | TanStack Query (React Query)        | Data fetching, caching, mutations    |
+| Styling     | Tailwind CSS (recommended)          | Modern, utility-first styling        |
+| Container   | Docker • docker-compose             | Local & production-like environment  |
+
+## 🚀 Quick Start (Local Production Mode)
 
 ```bash
-# 1. Clone repo
-git clone https://github.com/yourusername/inventory-pos-lite.git
+# 1. Clone the repository
+git clone https://github.com/bundlab/inventory-pos-lite.git
 cd inventory-pos-lite
 
-# 2. Copy env files
+# 2. Copy environment files
 cp .env.example .env
 cp backend/.env.example backend/.env
-cp frontend/.env.example frontend/.env
 
-# 3. Start everything with Docker
+# 3. Build frontend (important!)
+cd frontend
+npm install
+npm run build
+cd ..
+
+# 4. Start everything with Docker
 docker compose up -d --build
 
-# Backend  →  http://localhost:8000/docs
-# Frontend →  http://localhost:5173
+# 5. Open in browser
+# → http://localhost:8000

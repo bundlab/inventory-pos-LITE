@@ -1,0 +1,9 @@
+fastapi==0.115.0
+uvicorn==0.30.6
+sqlmodel==0.0.22
+psycopg[binary]==3.2.3
+pydantic-settings==2.5.2
+python-jose[cryptography]==3.3.0
+passlib[bcrypt]==1.7.4
+alembic==1.13.3
+python-multipart==0.0.9

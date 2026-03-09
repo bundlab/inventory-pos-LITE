@@ -1,0 +1,38 @@
+services:
+  db:
+    image: postgres:16
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: M8Y8D2B0
+      POSTGRES_DB: invpos
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  backend:
+    build:
+      context: .
+      dockerfile: backend/Dockerfile
+    command: uvicorn app.main:app --host 0.0.0.0 --port 8000 --no-access-log
+    # No volume mount for code → production style (changes require rebuild)
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      - DATABASE_URL=postgresql+psycopg://postgres:M8Y8D2B0@db:5432/invpos
+      - SECRET_KEY=PgoEEieWLCl4UvQ56a9Vx7BoioFVy9IyoyukMBLlDu-pJBTCfNdR32g_NmnxQLmYM_6Ww32Nk9GsBrNZxg1OWQ
+      - CORS_ORIGINS=["http://localhost:8000,http://127.0.0.1:8000"]
+    ports:
+      - "8000:8000"
+
+    volumes:
+          # Map the local dist folder to the container's app folder
+          - ./frontend/dist:/app/frontend/dist
+  
+volumes:
+  pgdata: {}

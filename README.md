@@ -54,6 +54,37 @@
 | Styling     | Tailwind CSS (recommended)          | Modern, utility-first styling        |
 | Container   | Docker • docker-compose             | Local & production-like environment  |
 
+## 📂 Project Structure
+inventory-pos-lite/
+├── backend/                    # FastAPI application
+│   ├── app/                    # Core application code
+│   │   ├── api/                # Routers (items, auth, etc.)
+│   │   ├── core/               # Settings, security, JWT
+│   │   ├── crud/               # Database operations
+│   │   ├── models/             # SQLModel tables
+│   │   ├── schemas/            # Pydantic models
+│   │   ├── database.py
+│   │   └── main.py             # App entry + static mount
+│   ├── Dockerfile
+│   └── requirements.txt
+├── frontend/                   # React + Vite + TypeScript
+│   ├── src/
+│   │   ├── components/         # Reusable UI
+│   │   ├── pages/              # Page components
+│   │   ├── hooks/              # Custom hooks (useItems, etc.)
+│   │   ├── lib/                # API client (axios instance)
+│   │   ├── types/              # TypeScript interfaces
+│   │   ├── App.tsx
+│   │   └── main.tsx
+│   ├── public/
+│   ├── vite.config.ts
+│   ├── Dockerfile (multi-stage)
+│   └── package.json
+├── docker-compose.yml          # PostgreSQL + backend (frontend static)
+├── .env.example
+├── .gitignore
+└── README.md
+
 ## 🚀 Quick Start (Local Production Mode)
 
 ```bash

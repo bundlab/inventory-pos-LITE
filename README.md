@@ -9,13 +9,13 @@
 
   <p>
     <a href="https://github.com/bundlab/inventory-pos-lite/actions/workflows/ci.yml">
-      <img src="https://img.shields.io/github/actions/workflow/status/yourusername/inventory-pos-lite/ci.yml?branch=main&label=CI&logo=github" alt="CI Status">
+      <img src="https://img.shields.io/github/actions/workflow/status/bundlab/inventory-pos-lite/ci.yml?branch=main&label=CI&logo=github" alt="CI Status">
     </a>
     <a href="https://github.com/bundlab/inventory-pos-lite/blob/main/LICENSE">
-      <img src="https://img.shields.io/github/license/yourusername/inventory-pos-lite?color=blue" alt="License">
+      <img src="https://img.shields.io/github/license/bundlab/inventory-pos-lite?color=blue" alt="License">
     </a>
     <a href="https://github.com/bundlab/inventory-pos-lite/stargazers">
-      <img src="https://img.shields.io/github/stars/yourusername/inventory-pos-lite?style=social" alt="Stars">
+      <img src="https://img.shields.io/github/stars/bundlab/inventory-pos-lite?style=social" alt="Stars">
     </a>
     <img src="https://img.shields.io/badge/Python-3.11%2B-blue?logo=python&logoColor=white" alt="Python">
     <img src="https://img.shields.io/badge/React-18-blue?logo=react&logoColor=white" alt="React">

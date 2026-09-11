@@ -84,8 +84,28 @@ inventory-pos-lite/
 ├── docker-compose.yml          # PostgreSQL + backend (frontend static)
 ├── .env.example
 ├── .gitignore
+├── CODE_OF_CONDUCT.md
+├── CONTRIBUTING.md
+├── LICENSE
 └── README.md
 ```
+## Contributing
+
+We welcome contributions of all kinds!
+
+Please read the following documents before contributing:
+
+- [Contributing Guidelines](CONTRIBUTING.md)
+- [Code of Conduct](CODE_OF_CONDUCT.md)
+
+### Quick contribution steps
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'feat: add amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
 ## 🚀 Quick Start (Local Production Mode)
 
 ```bash

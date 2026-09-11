@@ -26,7 +26,7 @@
   <br />
 
   <!-- Replace with your real screenshot later -->
-  <img src="https://via.placeholder.com/1280x720/1e3a8a/ffffff?text=Inventory+POS+Lite+Dashboard" alt="Dashboard Screenshot" width="800" />
+  ![Inventory pos LITE](./assets/invent-dashboard.jpg)
 
 </div>
 

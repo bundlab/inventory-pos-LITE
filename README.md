@@ -55,6 +55,7 @@
 | Container   | Docker • docker-compose             | Local & production-like environment  |
 
 ## 📂 Project Structure
+```text
 inventory-pos-lite/
 ├── backend/                    # FastAPI application
 │   ├── app/                    # Core application code
@@ -84,7 +85,7 @@ inventory-pos-lite/
 ├── .env.example
 ├── .gitignore
 └── README.md
-
+```
 ## 🚀 Quick Start (Local Production Mode)
 
 ```bash
@@ -106,4 +107,4 @@ cd ..
 docker compose up -d --build
 
 # 5. Open in browser
-# → http://localhost:8000
+# → http://localhost:8001

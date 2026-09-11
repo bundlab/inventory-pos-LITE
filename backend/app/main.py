@@ -25,22 +25,31 @@ app.include_router(items.router, prefix="/api/items", tags=["items"])
 
 # Serve React build in production mode
 # Inside the Docker container, everything is relative to /app
-BASE_PATH = Path("/app") 
+# Serve React build
+BASE_PATH = Path("/app")
 FRONTEND_DIST = BASE_PATH / "frontend" / "dist"
 
 if FRONTEND_DIST.exists():
-    # Serve assets (JS/CSS)
-    app.mount("/assets", StaticFiles(directory=str(FRONTEND_DIST / "assets")), name="assets")
-    
-    @app.get("/{path:path}", include_in_schema=False)
-    async def serve_spa(path: str):
-        # Always serve index.html for any non-API route (SPA behavior)
-        index_path = FRONTEND_DIST / "index.html"
-        if index_path.exists():
-            return FileResponse(str(index_path))
-        return {"error": "index.html not found in dist"}
+    # 1. Serve JS / CSS / images from /assets
+    app.mount(
+        "/assets",
+        StaticFiles(directory=FRONTEND_DIST / "assets"),
+        name="assets",
+    )
+
+    # 2. Serve index.html for the root
+    @app.get("/")
+    async def serve_root():
+        return FileResponse(FRONTEND_DIST / "index.html")
+
+    # 3. SPA fallback for client-side routes (exclude assets and api)
+    @app.get("/{full_path:path}")
+    async def serve_spa(full_path: str):
+        if full_path.startswith(("api/", "assets/", "docs", "openapi.json", "health")):
+            return {"detail": "Not Found"}
+        return FileResponse(FRONTEND_DIST / "index.html")
 else:
-    print(f"Warning: {FRONTEND_DIST} not found – API only mode")
+    print(f"Warning: Frontend dist not found at {FRONTEND_DIST}")
 
 @app.get("/health")
 async def health():

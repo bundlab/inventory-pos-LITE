@@ -9,8 +9,8 @@ engine = create_engine(settings.DATABASE_URL, connect_args=connect_args)
 async_engine = create_async_engine(settings.DATABASE_URL)
 async_session = async_sessionmaker(async_engine, expire_on_commit=False)
 
-def get_session() -> Session:
-    with engine.connect() as session:
+def get_session():
+    with Session(engine) as session:
         yield session
 
 def create_db_and_tables():

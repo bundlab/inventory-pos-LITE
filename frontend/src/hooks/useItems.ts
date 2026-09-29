@@ -5,14 +5,14 @@ import { Item, ItemCreate, ItemUpdate } from '@/types/item';
 export function useItems() {
   return useQuery<Item[]>({
     queryKey: ['items'],
-    queryFn: () => api.get('/items').then(res => res.data),
+    queryFn: () => api.get('/items/').then(res => res.data),
   });
 }
 
 export function useCreateItem() {
   const queryClient = useQueryClient();
   return useMutation({
-    mutationFn: (data: ItemCreate) => api.post('/items', data).then(res => res.data),
+    mutationFn: (data: ItemCreate) => api.post('/items/', data).then(res => res.data),
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['items'] });
     },
